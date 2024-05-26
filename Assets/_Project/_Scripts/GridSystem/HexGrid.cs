@@ -30,6 +30,21 @@ namespace GridSystem
             }
         }
 
+        public int GetWidth()
+        {
+            return _width;
+        }
+
+        public int GetHeight()
+        {
+            return _height;
+        }
+
+        public float GetCellSize()
+        {
+            return _cellSize;
+        }
+
         public Vector3 GetWorldPosition(int x, int z)
         {
             return

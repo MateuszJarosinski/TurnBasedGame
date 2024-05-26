@@ -212,4 +212,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a93cd79dc50f0be408cc4eb4d2d353b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultVisual: {fileID: 5628516759396841640}
   selectedVisual: {fileID: 2478901371766690600}
