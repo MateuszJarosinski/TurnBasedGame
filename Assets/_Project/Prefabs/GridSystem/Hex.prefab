@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 5647589250112435593}
   - {fileID: 2253175036604145452}
+  - {fileID: 564711365867995736}
   m_Father: {fileID: 6771049759014007995}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &615151074214409368
@@ -64,7 +65,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2721477708960358892}
+  m_Father: {fileID: 352034603934332381}
   m_LocalEulerAnglesHint: {x: 0, y: 63.3, z: 0}
 --- !u!65 &6656547239047588434
 BoxCollider:
@@ -102,7 +103,7 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5398755061121881568}
+      - m_Target: {fileID: 8287205058048819143}
         m_TargetAssemblyTypeName: Core.EventHandlers.ObstacleDetector, Assembly-CSharp
         m_MethodName: ObstacleEntered
         m_Mode: 1
@@ -117,7 +118,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5398755061121881568}
+      - m_Target: {fileID: 8287205058048819143}
         m_TargetAssemblyTypeName: Core.EventHandlers.ObstacleDetector, Assembly-CSharp
         m_MethodName: ObstacleExited
         m_Mode: 1
@@ -132,6 +133,42 @@ MonoBehaviour:
   OnStay:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &2305326309595586113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 352034603934332381}
+  m_Layer: 6
+  m_Name: Obstacles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &352034603934332381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2305326309595586113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6521365262473724827}
+  - {fileID: 6168093216804322223}
+  - {fileID: 2153876922089583971}
+  - {fileID: 1007604616998711204}
+  - {fileID: 4139242672743684805}
+  m_Father: {fileID: 2721477708960358892}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2478901371766690600
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +181,7 @@ GameObject:
   - component: {fileID: 2161233231544403496}
   - component: {fileID: 6490789080144061974}
   m_Layer: 6
-  m_Name: Selected
+  m_Name: Highlighted
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,7 +283,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2721477708960358892}
+  m_Father: {fileID: 352034603934332381}
   m_LocalEulerAnglesHint: {x: 0, y: 63.3, z: 0}
 --- !u!65 &2959586128212302721
 BoxCollider:
@@ -284,7 +321,7 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5398755061121881568}
+      - m_Target: {fileID: 8287205058048819143}
         m_TargetAssemblyTypeName: Core.EventHandlers.ObstacleDetector, Assembly-CSharp
         m_MethodName: ObstacleEntered
         m_Mode: 1
@@ -299,7 +336,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5398755061121881568}
+      - m_Target: {fileID: 8287205058048819143}
         m_TargetAssemblyTypeName: Core.EventHandlers.ObstacleDetector, Assembly-CSharp
         m_MethodName: ObstacleExited
         m_Mode: 1
@@ -344,11 +381,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6521365262473724827}
-  - {fileID: 6168093216804322223}
-  - {fileID: 2153876922089583971}
-  - {fileID: 1007604616998711204}
-  - {fileID: 4139242672743684805}
+  - {fileID: 352034603934332381}
+  - {fileID: 4488259923811113462}
   m_Father: {fileID: 6771049759014007995}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &6590267032899543606
@@ -409,7 +443,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2721477708960358892}
+  m_Father: {fileID: 352034603934332381}
   m_LocalEulerAnglesHint: {x: 0, y: 116.6, z: 0}
 --- !u!65 &4468218577336613198
 BoxCollider:
@@ -447,7 +481,7 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5398755061121881568}
+      - m_Target: {fileID: 8287205058048819143}
         m_TargetAssemblyTypeName: Core.EventHandlers.ObstacleDetector, Assembly-CSharp
         m_MethodName: ObstacleEntered
         m_Mode: 1
@@ -462,7 +496,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5398755061121881568}
+      - m_Target: {fileID: 8287205058048819143}
         m_TargetAssemblyTypeName: Core.EventHandlers.ObstacleDetector, Assembly-CSharp
         m_MethodName: ObstacleExited
         m_Mode: 1
@@ -508,7 +542,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2721477708960358892}
+  m_Father: {fileID: 352034603934332381}
   m_LocalEulerAnglesHint: {x: 0, y: 116.6, z: 0}
 --- !u!65 &5007765317605127969
 BoxCollider:
@@ -546,7 +580,7 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5398755061121881568}
+      - m_Target: {fileID: 8287205058048819143}
         m_TargetAssemblyTypeName: Core.EventHandlers.ObstacleDetector, Assembly-CSharp
         m_MethodName: ObstacleEntered
         m_Mode: 1
@@ -561,7 +595,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5398755061121881568}
+      - m_Target: {fileID: 8287205058048819143}
         m_TargetAssemblyTypeName: Core.EventHandlers.ObstacleDetector, Assembly-CSharp
         m_MethodName: ObstacleExited
         m_Mode: 1
@@ -659,6 +693,89 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5650483566562446220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 564711365867995736}
+  - component: {fileID: 5847488190038113604}
+  - component: {fileID: 4498837073243337516}
+  m_Layer: 6
+  m_Name: Selected
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &564711365867995736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5650483566562446220}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.01, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5541226560751474582}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!33 &5847488190038113604
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5650483566562446220}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &4498837073243337516
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5650483566562446220}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 03a0a31264b080846b589421437ad154, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6004910755064999461
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +807,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2721477708960358892}
+  m_Father: {fileID: 352034603934332381}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &41981095125259854
 BoxCollider:
@@ -712,7 +829,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.5011972}
-  m_Center: {x: 0, y: 0.5, z: -0.0015955046}
+  m_Center: {x: 0, y: 0.5, z: -0.001595505}
 --- !u!114 &3778886806383835701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,7 +845,7 @@ MonoBehaviour:
   OnEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5398755061121881568}
+      - m_Target: {fileID: 8287205058048819143}
         m_TargetAssemblyTypeName: Core.EventHandlers.ObstacleDetector, Assembly-CSharp
         m_MethodName: ObstacleEntered
         m_Mode: 1
@@ -743,7 +860,7 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5398755061121881568}
+      - m_Target: {fileID: 8287205058048819143}
         m_TargetAssemblyTypeName: Core.EventHandlers.ObstacleDetector, Assembly-CSharp
         m_MethodName: ObstacleExited
         m_Mode: 1
@@ -768,7 +885,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6771049759014007995}
   - component: {fileID: 1963551880589034543}
-  - component: {fileID: 5398755061121881568}
+  - component: {fileID: 8287205058048819143}
+  - component: {fileID: 1564618250026291286}
   m_Layer: 6
   m_Name: Hex
   m_TagString: Untagged
@@ -806,8 +924,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultVisual: {fileID: 5628516759396841640}
-  selectedVisual: {fileID: 2478901371766690600}
---- !u!114 &5398755061121881568
+  highlightedVisual: {fileID: 2478901371766690600}
+  selectedVisual: {fileID: 5650483566562446220}
+--- !u!114 &8287205058048819143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -816,6 +935,117 @@ MonoBehaviour:
   m_GameObject: {fileID: 6743949752239232592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad20b46f1023e7143956466cdd8eaa71, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ecde6735ccfde44490d96850c6439a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1564618250026291286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743949752239232592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b13dbbf557c3843a008a474883c0da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7751679669283247977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4488259923811113462}
+  - component: {fileID: 6066040405395357607}
+  - component: {fileID: 1135031878911699839}
+  m_Layer: 10
+  m_Name: Units
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4488259923811113462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7751679669283247977}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2721477708960358892}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &6066040405395357607
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7751679669283247977}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0.6, z: 0}
+--- !u!114 &1135031878911699839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7751679669283247977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b7f09a05293b244bbc1a2f2b706f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1564618250026291286}
+        m_TargetAssemblyTypeName: GridSystem.UnitDetector, Assembly-CSharp
+        m_MethodName: UnitEntered
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1564618250026291286}
+        m_TargetAssemblyTypeName: GridSystem.UnitDetector, Assembly-CSharp
+        m_MethodName: UnitExited
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStay:
+    m_PersistentCalls:
+      m_Calls: []
