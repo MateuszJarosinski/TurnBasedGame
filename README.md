@@ -5,7 +5,7 @@ Here is the project I am currently working on. You can think of it as the curren
 What I plan to include in the project:
 - hex map generation
 - A* pathfinding
-- turn-based animation system
+- turn-based combat system
 - skills system
 - decision-making AI
 
