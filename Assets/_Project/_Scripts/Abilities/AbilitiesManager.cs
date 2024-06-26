@@ -29,6 +29,16 @@ namespace Abilities
 
         public void AddAbility(AbilityData data)
         {
+            //check if this ability already exists
+            foreach (var ability in abilities)
+            {
+                if (ability.Type == data.Type)
+                {
+                    Debug.Log("<color=orange>This ability already exists</color>");
+                    return;
+                }
+            }
+
             GameObject abilityGameObject = Instantiate(data.AbilityGameObject, abilitiesTransform);
             abilities.Add(abilityGameObject.GetComponent<Ability>());
 
