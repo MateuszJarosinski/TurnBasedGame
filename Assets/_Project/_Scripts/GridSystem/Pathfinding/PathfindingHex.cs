@@ -114,8 +114,8 @@ namespace GridSystem.Pathfinding
 
         public List<PathfindingHexNode> FindPath(int startX, int startZ, int endX, int endZ)
         {
-            PathfindingHexNode startNode = _grid.GetGridObject(startX, startZ).PathfindingNode;
-            PathfindingHexNode endNode = _grid.GetGridObject(endX, endZ).PathfindingNode;
+            PathfindingHexNode startNode = _grid.GetGridObject(startX, startZ)?.PathfindingNode;
+            PathfindingHexNode endNode = _grid.GetGridObject(endX, endZ)?.PathfindingNode;
 
             if (startNode == null || endNode == null)
             {
