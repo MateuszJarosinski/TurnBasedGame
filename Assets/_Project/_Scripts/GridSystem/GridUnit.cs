@@ -10,6 +10,7 @@ namespace GridSystem
     public class GridUnit : MonoBehaviour, IAmGridUnit
     {
         [field: SerializeField] public HexGridManager GridManager { get; private set; }
+        [field: SerializeField] public Transform UnitHud { get; private set; }
 
         private PathfindingMover _pathfindingMover;
 
@@ -34,22 +35,23 @@ namespace GridSystem
         public void MakeInteractable()
         {
             _pathfindingMover.CanMove(true);
+            UnitHud.gameObject.SetActive(true);
         }
 
         public void MakeNonInteractable()
         {
             _pathfindingMover.CanMove(false);
+            UnitHud.gameObject.SetActive(false);
         }
 
         public void Move(Vector3 from, Vector3 to)
         {
             List<Vector3> path = GridManager.Pathfinding.FindPath(from, to);
-
-            if (path.Count > 1)
+            if (path != null && path.Count > 1)
             {
                 _pathfindingMover.Move(path);
-                GridManager.DeselectHex();
                 MakeNonInteractable();
+                GridManager.DeselectHex();
             }
             else
             {

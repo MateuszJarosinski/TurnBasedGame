@@ -13,6 +13,8 @@ namespace Core.Mouse3D
         [SerializeField] private Transform mouseTransform;
         [SerializeField] private float followSpeed = 20f;
 
+        private static bool _enabled = true;
+
         private void Update()
         {
             if (mouseTransform != null)
@@ -23,6 +25,8 @@ namespace Core.Mouse3D
 
         public static Vector3 GetMouseWorldPosition()
         {
+            if (!_enabled) return new Vector3(99999, 99999, 99999);
+
             if (Instance == null)
             {
                 Debug.LogError("Mouse3D Object does not exist!");
@@ -44,6 +48,18 @@ namespace Core.Mouse3D
             {
                 return Vector3.zero;
             }
+        }
+
+        public void EnableMouse()
+        {
+            mouseTransform.gameObject.SetActive(true);
+            _enabled = true;
+        }
+
+        public void DisableMouse()
+        {
+            mouseTransform.gameObject.SetActive(true);
+            _enabled = false;
         }
     }
 }

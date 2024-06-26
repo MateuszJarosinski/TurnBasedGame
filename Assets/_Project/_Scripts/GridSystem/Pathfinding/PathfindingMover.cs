@@ -7,6 +7,7 @@ namespace GridSystem.Pathfinding
     public class PathfindingMover : MonoBehaviour
     {
         [SerializeField] private bool _drawDebugPathLine;
+        [SerializeField] private float moveSpeed = 1;
 
         private GridUnit _unit;
         private List<Vector3> _pathVectorList;
@@ -49,7 +50,7 @@ namespace GridSystem.Pathfinding
 
             Vector3 nextPathPosition = _pathVectorList[pathIndex];
 
-            transform.position = Vector3.MoveTowards(transform.position, nextPathPosition, Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, nextPathPosition, Time.deltaTime * moveSpeed);
 
             if (transform.position == nextPathPosition)
             {

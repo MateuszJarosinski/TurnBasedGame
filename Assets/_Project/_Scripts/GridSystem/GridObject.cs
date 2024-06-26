@@ -28,7 +28,15 @@ namespace GridSystem
         {
             GridHighlight.Select();
 
-            if (GridUnit != null) GridUnit.MakeInteractable();
+            if (GridUnit != null)
+            {
+                GridUnit.MakeInteractable();
+                Debug.Log($"<color=green>There is unit on this hex</color>");
+            }
+            else
+            {
+                Debug.Log($"<color=orange>There is not unit on this hex</color>");
+            }
         }
 
         public void Deselect()
