@@ -23,10 +23,5 @@ namespace GridSystem.Pathfinding
         {
             fCost = gCost + hCost;
         }
-
-        public void SetIsWalkable(bool isWalkable)
-        {
-            this.isWalkable = isWalkable;
-        }
     }
 }

@@ -1,5 +1,7 @@
 using Core.Mouse3D;
 using GridSystem.Pathfinding;
+using NaughtyAttributes;
+using System.Collections;
 using UnityEngine;
 
 namespace GridSystem
@@ -14,6 +16,7 @@ namespace GridSystem
         [SerializeField] private float cellSize;
         [SerializeField] private Vector3 originPos;
         [SerializeField] private GameObject hexPrefab;
+        [SerializeField] private GameObject[] gridUnits;
 
         private GridObject _lastHighlighted;
         private GridObject _lastSelected;
@@ -50,7 +53,7 @@ namespace GridSystem
 
             _lastHighlighted = HexGrid.GetGridObject(Mouse3D.GetMouseWorldPosition());
 
-            if (_lastHighlighted != null && _lastHighlighted.PathfindingNode.isWalkable) _lastHighlighted.GridHighlight.HighlightOn();
+            if (_lastHighlighted != null && !_lastHighlighted.ObstacleDetector.IsOccupied) _lastHighlighted.GridHighlight.HighlightOn();
         }
 
         public void SelectHex()
@@ -59,12 +62,38 @@ namespace GridSystem
 
             _lastSelected = HexGrid.GetGridObject(Mouse3D.GetMouseWorldPosition());
 
-            if (_lastSelected != null && _lastHighlighted.PathfindingNode.isWalkable) _lastSelected.Select();
+            if (_lastSelected != null && !_lastHighlighted.ObstacleDetector.IsOccupied) _lastSelected.Select();
         }
 
         public void DeselectHex()
         {
             if (_lastSelected != null) _lastSelected.Deselect();
+        }
+
+        [Button]
+        public void SpawnUnits()
+        {
+            StartCoroutine(SpawnCoroutine());
+        }
+
+        IEnumerator SpawnCoroutine()
+        {
+            foreach (var unit in gridUnits)
+            {
+                int x = Random.Range(0, width);
+                int y = Random.Range(0, height);
+
+                while (HexGrid.GetGridObject(x, y).IsOccupied())
+                {
+                    x = Random.Range(0, width);
+                    y = Random.Range(0, height);
+                }
+
+                Vector3 spawnPos = HexGrid.GetWorldPosition(x, y);
+
+                Instantiate(unit, spawnPos, Quaternion.identity);
+                yield return new WaitForEndOfFrame();
+            }
         }
     }
 }

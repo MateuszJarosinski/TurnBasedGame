@@ -50,5 +50,11 @@ namespace GridSystem
         {
             GridUnit = unit;
         }
+
+        public bool IsOccupied()
+        {
+            if (ObstacleDetector.IsOccupied || GridUnit != null) return true;
+            else return false;
+        }
     }
 }
