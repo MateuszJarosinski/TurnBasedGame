@@ -29,11 +29,13 @@ namespace GridSystem
         private void UnitDetected()
         {
             _gridObject.SetNewGridUnit(_unit);
+            _gridObject.PathfindingNode.isWalkable = false;
         }
 
         private void UnitMissed()
         {
             _gridObject.SetNewGridUnit(null);
+            _gridObject.PathfindingNode.isWalkable = true;
         }
     }
 }

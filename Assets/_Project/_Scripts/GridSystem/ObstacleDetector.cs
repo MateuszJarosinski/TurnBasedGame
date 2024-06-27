@@ -5,6 +5,8 @@ namespace Core.EventHandlers
 {
     public class ObstacleDetector : MonoBehaviour
     {
+        public bool IsOccupied { get; private set; }
+
         private GridObject _gridObject;
 
         private int _detectedNum;
@@ -30,6 +32,7 @@ namespace Core.EventHandlers
 
         private void ChangeGridState(bool occupied)
         {
+            IsOccupied = occupied;
             _gridObject.PathfindingNode.isWalkable = !occupied;
             _gridObject.GridHighlight.SetVisibility(!occupied);
         }
