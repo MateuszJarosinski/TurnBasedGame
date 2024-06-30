@@ -1,4 +1,5 @@
 ﻿using NaughtyAttributes;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +7,16 @@ namespace GridSystem.Pathfinding
 {
     public class PathfindingMover : MonoBehaviour
     {
+        public event Action OnEndMove;
+
         [SerializeField] private bool _drawDebugPathLine;
         [SerializeField] private float moveSpeed = 1;
+        [SerializeField] private int maxMoveSteps;
 
         private GridUnit _unit;
         private List<Vector3> _pathVectorList;
         private int pathIndex = -1;
+        private int stepsCount;
 
         [ShowNonSerializedField] private bool _canMove;
 
@@ -26,6 +31,7 @@ namespace GridSystem.Pathfinding
 
             _pathVectorList = pathVectorList;
             pathIndex = _pathVectorList.Count > 0 ? 0 : -1;
+            stepsCount -= 1;
 
             //Debug line drawer
             if (_drawDebugPathLine)
@@ -43,6 +49,7 @@ namespace GridSystem.Pathfinding
         }
 
         public bool CanMove(bool canMove) => _canMove = canMove;
+        public void ResetSteps() => stepsCount = 0;
 
         private void PathfindingMove()
         {
@@ -55,9 +62,21 @@ namespace GridSystem.Pathfinding
             if (transform.position == nextPathPosition)
             {
                 pathIndex++;
+                stepsCount++;
+
+                Debug.Log($"Steps: {stepsCount}, index {pathIndex}");
+
                 if (pathIndex >= _pathVectorList.Count)
                 {
                     // End of path
+                    pathIndex = -1;
+                }
+
+                if (stepsCount >= maxMoveSteps)
+                {
+                    // No more move steps
+                    OnEndMove?.Invoke();
+                    stepsCount = 0;
                     pathIndex = -1;
                 }
             }

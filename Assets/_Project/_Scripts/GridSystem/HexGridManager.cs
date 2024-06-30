@@ -1,7 +1,8 @@
 using Core.Mouse3D;
 using GridSystem.Pathfinding;
-using NaughtyAttributes;
+using Interfaces;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GridSystem
@@ -16,10 +17,12 @@ namespace GridSystem
         [SerializeField] private float cellSize;
         [SerializeField] private Vector3 originPos;
         [SerializeField] private GameObject hexPrefab;
-        [SerializeField] private GameObject[] gridUnits;
+        [SerializeField] private GameObject[] gridUnitPrefabs;
 
         private GridObject _lastHighlighted;
         private GridObject _lastSelected;
+
+        public List<IAmGridUnit> Units { get; private set; } = new List<IAmGridUnit>();
 
         private void Awake()
         {
@@ -65,12 +68,20 @@ namespace GridSystem
             if (_lastSelected != null && !_lastHighlighted.ObstacleDetector.IsOccupied) _lastSelected.Select();
         }
 
+        public void SelectHex(Vector3 pos)
+        {
+            if (_lastSelected != null) _lastSelected.Deselect();
+
+            _lastSelected = HexGrid.GetGridObject(pos);
+
+            if (_lastSelected != null) _lastSelected.Select();
+        }
+
         public void DeselectHex()
         {
             if (_lastSelected != null) _lastSelected.Deselect();
         }
 
-        [Button]
         public void SpawnUnits()
         {
             StartCoroutine(SpawnCoroutine());
@@ -78,7 +89,7 @@ namespace GridSystem
 
         IEnumerator SpawnCoroutine()
         {
-            foreach (var unit in gridUnits)
+            foreach (var unit in gridUnitPrefabs)
             {
                 int x = Random.Range(0, width);
                 int y = Random.Range(0, height);
@@ -91,7 +102,8 @@ namespace GridSystem
 
                 Vector3 spawnPos = HexGrid.GetWorldPosition(x, y);
 
-                Instantiate(unit, spawnPos, Quaternion.identity);
+                var newUnit = Instantiate(unit, spawnPos, Quaternion.identity);
+                Units.Add(newUnit.GetComponent<IAmGridUnit>());
                 yield return new WaitForEndOfFrame();
             }
         }

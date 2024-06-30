@@ -43,7 +43,7 @@ namespace GridSystem
         {
             GridHighlight.Deselect();
 
-            if (GridUnit != null) GridUnit.MakeNonInteractable();
+            //if (GridUnit != null) GridUnit.MakeNonInteractable();
         }
 
         public void SetNewGridUnit(IAmGridUnit unit)

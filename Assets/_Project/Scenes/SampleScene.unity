@@ -483,6 +483,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &763625369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 763625371}
+  - component: {fileID: 763625370}
+  m_Layer: 0
+  m_Name: TurnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &763625370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763625369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f77cdc61e78644a8df29c297081790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridManager: {fileID: 1672796302}
+--- !u!4 &763625371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763625369}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.406295, y: 19.54882, z: -4.534067}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,13 +606,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a457b556337b54d9a0620938cbe49a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 15
-  height: 20
+  width: 10
+  height: 6
   cellSize: 1.15
   originPos: {x: 0, y: 0, z: 0}
   hexPrefab: {fileID: 6743949752239232592, guid: 736c97cdbb31a9348ab8d0d3faadb079,
     type: 3}
-  gridUnits:
+  gridUnitPrefabs:
+  - {fileID: 6859419331001391726, guid: 92a93df8681c3534db19b10db1d897cc, type: 3}
+  - {fileID: 6859419331001391726, guid: 92a93df8681c3534db19b10db1d897cc, type: 3}
   - {fileID: 6859419331001391726, guid: 92a93df8681c3534db19b10db1d897cc, type: 3}
   - {fileID: 6859419331001391726, guid: 92a93df8681c3534db19b10db1d897cc, type: 3}
 --- !u!4 &1672796303
@@ -802,3 +849,4 @@ SceneRoots:
   - {fileID: 1672796303}
   - {fileID: 446071070}
   - {fileID: 2061718928}
+  - {fileID: 763625371}

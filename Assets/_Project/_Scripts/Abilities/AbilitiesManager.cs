@@ -7,6 +7,8 @@ namespace Abilities
 {
     public class AbilitiesManager : MonoBehaviour
     {
+        public event Action OnCastSpell;
+
         public event Action<AbilityData> OnAbilityAdded;
         public event Action<AbilityData> OnAbilityRemoved;
 
@@ -15,13 +17,18 @@ namespace Abilities
 
         public AbilityData DEBUG_ablity;
 
+        private bool _canCast;
+
         public void ExecuteAbility(AbilityType type)
         {
+            if (!_canCast) return;
+
             foreach (var ability in abilities)
             {
                 if (ability.Type == type)
                 {
                     ability.Execute();
+                    OnCastSpell?.Invoke();
                     break;
                 }
             }
@@ -58,6 +65,11 @@ namespace Abilities
             }
 
             OnAbilityRemoved?.Invoke(data);
+        }
+
+        public void CanCastSpell(bool canCast)
+        {
+            _canCast = canCast;
         }
 
         [Button]
